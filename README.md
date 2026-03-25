@@ -30,3 +30,14 @@ npx playwright install
 npm test
 docker rm -f juice-shop
 ```
+
+## 6. Execution Environments
+This suite is designed to run consistently in two execution environments:
+
+- Local workstation execution: requires Node.js, npm, and a running Docker daemon. Tests target `http://localhost:3000`, so the Juice Shop container must be started before test execution.
+- Cloud CI execution (GitHub Actions): provisions dependencies, Playwright browsers, and a local Juice Shop container inside the runner, then executes the same test commands used locally.
+
+Operational expectations:
+
+- Local: ensure port `3000` is available and Docker is running before `npm test`.
+- CI: no developer workstation dependencies are required; all runtime dependencies are provisioned by the workflow definition.
