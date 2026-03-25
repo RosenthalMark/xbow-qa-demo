@@ -26,6 +26,7 @@ This model scales across pods by making quality ownership shared: engineers impl
 docker run -d --name juice-shop -p 3000:3000 bkimminich/juice-shop
 cd playwright
 npm install
+npx playwright install
 npm test
 docker rm -f juice-shop
 ```
