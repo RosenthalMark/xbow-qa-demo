@@ -4,9 +4,11 @@ test.describe('OWASP Juice Shop - Security Tests', () => {
 
   test('SQL injection on login form is handled', async ({ page }) => {
     await page.goto('/#/login');
+    const dismiss = page.locator('button:has-text("Dismiss")');
+    if (await dismiss.isVisible()) await dismiss.click();
     await page.locator('#email').fill("' OR 1=1--");
     await page.locator('#password').fill('anything');
-    await page.locator('#loginButton').click();
+    await page.locator('#loginButton').click({ force: true });
 
     // Document whether SQL injection succeeds or fails
     const url = page.url();

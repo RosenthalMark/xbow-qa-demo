@@ -1,0 +1,5 @@
+.DS_Store
+playwright/.DS_Store
+playwright/node_modules/
+playwright/playwright-report/
+playwright/test-results/
