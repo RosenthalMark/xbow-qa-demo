@@ -5,8 +5,8 @@ This repository uses Playwright as a single execution layer for UI, API, and sec
 
 From a scaling perspective, centralizing these checks in Playwright lets the team expand attack-pattern coverage without fragmenting tooling or increasing operational load in CI. From a risk perspective, automated SQLi and XSS mocking shifts these defects from production discovery into deterministic pre-merge signals.
 
-## 2. GhostOps CI/CD
-GhostOps CI/CD implements a "Shift Left" control point on every push to `main` through GitHub Actions. The workflow provisions dependencies, installs Playwright browsers with required system packages, and executes the core suite as a release gate.
+## 2. CI/CD Shift Left Pipeline
+This CI/CD pipeline implements a "Shift Left" control point on every push to `main` through GitHub Actions. The workflow provisions dependencies, installs Playwright browsers with required system packages, and executes the core suite as a release gate.
 
 This pipeline design focuses on containment of security and integration risk before downstream environments absorb unstable changes. Standardized, repeatable execution in CI also improves confidence at scale by reducing local-environment variance and preserving artifact-quality diagnostics for triage when failures occur.
 
